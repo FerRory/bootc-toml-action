@@ -11,8 +11,7 @@ export async function run(): Promise<void> {
     /*    const header: string = "[[customizations.user]]"; */
     const filename: string = 'config.toml'
 
-    const content = `
-[[customizations.user]]
+    const content = `[[customizations.user]]
 name =  "${name}"
 password = "${password}"
 key = "${key}"
