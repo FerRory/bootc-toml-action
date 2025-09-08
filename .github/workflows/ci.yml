@@ -64,4 +64,3 @@ jobs:
           echo "Output Directory: ${{ steps.action.outputs.output-filename }}"
           echo "Content config.toml:"
           cat config.toml
-

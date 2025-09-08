@@ -1,0 +1,7 @@
+.DS_Store
+dist/
+node_modules/
+coverage/
+.github/renovate.json5
+.github
+README.md

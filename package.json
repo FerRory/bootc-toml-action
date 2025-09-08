@@ -1,5 +1,5 @@
 {
-  "name": "bootc-tom-action",
+  "name": "bootc-toml-action",
   "description": "A GitHub Action to generate config.toml with user",
   "version": "0.0.1",
   "author": "",
