@@ -1,7 +1,7 @@
 {
   "name": "bootc-toml-action",
   "description": "A GitHub Action to generate config.toml with user",
-  "version": "0.0.1",
+  "version": "v0.0.1",
   "author": "",
   "type": "module",
   "private": true,
