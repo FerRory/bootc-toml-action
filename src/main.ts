@@ -19,7 +19,7 @@ groups = ${groups}
 `
 
     core.debug('Create TOML file.')
-    await writeToFile(filename, content)
+    await writeToFile(filename, content.replace(/^ +/gm, ''))
 
     core.setOutput('output-filename', filename)
   } catch (error) {
