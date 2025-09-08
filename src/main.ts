@@ -13,12 +13,12 @@ export async function run(): Promise<void> {
 
     const content = `[[customizations.user]]
 name =  "${name}"
-groups = ${groups}
 password = "${password}"
 key = "${key}"
+groups = ${groups}
 `
 
-    core.debug('Create TOML file.')
+    core.info('Create TOML file.')
 
     await writeToFile(filename, content.replace(/^ +/gm, ''))
 

@@ -27258,11 +27258,11 @@ async function run() {
         const filename = 'config.toml';
         const content = `[[customizations.user]]
 name =  "${name}"
-groups = ${groups}
 password = "${password}"
 key = "${key}"
+groups = ${groups}
 `;
-        coreExports.debug('Create TOML file.');
+        coreExports.info('Create TOML file.');
         await writeToFile(filename, content.replace(/^ +/gm, ''));
         coreExports.setOutput('output-filename', filename);
     }
