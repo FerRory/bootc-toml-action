@@ -30,9 +30,13 @@ key = "${key}"
 
 async function writeToFile(file: string, data: string): Promise<void> {
   try {
+    const options = {
+      silent: true
+    }
+
     const tempFile = `${file}.tmp`
-    await exec.exec('sh', ['-c', `echo '${data}' > ${tempFile}`])
-    await exec.exec('mv', [tempFile, file])
+    await exec.exec('sh', ['-c', `echo '${data}' > ${tempFile}`], options)
+    await exec.exec('mv', [tempFile, file], options)
   } catch (error) {
     core.setFailed(
       `Failed to write to file ${file}: ${(error as Error).message}`

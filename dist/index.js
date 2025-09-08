@@ -27250,22 +27250,21 @@ var execExports = requireExec();
 
 async function run() {
     try {
-        const name = coreExports.getInput("name");
-        const password = coreExports.getInput("password");
-        const key = coreExports.getInput("key");
+        const name = coreExports.getInput('name');
+        const password = coreExports.getInput('password');
+        const key = coreExports.getInput('key');
         const groups = '["wheel"]';
         /*    const header: string = "[[customizations.user]]"; */
-        const filename = "config.toml";
-        const content = `
-      [[customizations.user]]
-      name =  "${name}"
-      password = "${password}"
-      key = "${key}"
-      groups = ${groups}
-    `;
-        coreExports.debug("Create TOML file.");
-        await writeToFile(filename, content);
-        coreExports.setOutput("output-filename", filename);
+        const filename = 'config.toml';
+        const content = `[[customizations.user]]
+name =  "${name}"
+groups = ${groups}
+password = "${password}"
+key = "${key}"
+`;
+        coreExports.debug('Create TOML file.');
+        await writeToFile(filename, content.replace(/^ +/gm, ''));
+        coreExports.setOutput('output-filename', filename);
     }
     catch (error) {
         coreExports.setFailed(`Failed: ${error.message}`);
@@ -27273,9 +27272,12 @@ async function run() {
 }
 async function writeToFile(file, data) {
     try {
+        const options = {
+            silent: true
+        };
         const tempFile = `${file}.tmp`;
-        await execExports.exec("sh", ["-c", `echo '${data}' > ${tempFile}`]);
-        await execExports.exec("mv", [tempFile, file]);
+        await execExports.exec('sh', ['-c', `echo '${data}' > ${tempFile}`], options);
+        await execExports.exec('mv', [tempFile, file], options);
     }
     catch (error) {
         coreExports.setFailed(`Failed to write to file ${file}: ${error.message}`);
