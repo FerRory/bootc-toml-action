@@ -64,3 +64,10 @@ jobs:
           echo "Output Directory: ${{ steps.action.outputs.output-filename }}"
           echo "Content config.toml:"
           cat config.toml
+
+      - name: Upload config.tml
+        uses: actions/upload-artifact@v4
+        with:
+          name: config.toml
+          path: ./config.toml
+          if-no-files-found: error
