@@ -16,9 +16,11 @@ name =  "${name}"
 password = "${password}"
 key = "${key}"
 groups = ${groups}
+# Attempt 3
 `
 
     core.debug('Create TOML file.')
+    
     await writeToFile(filename, content.replace(/^ +/gm, ''))
 
     core.setOutput('output-filename', filename)
