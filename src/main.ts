@@ -12,11 +12,11 @@ export async function run(): Promise<void> {
     const filename: string = 'config.toml'
 
     const content = `
-      [[customizations.user]]
-      name =  "${name}"
-      password = "${password}"
-      key = "${key}"
-      groups = ${groups}
+[[customizations.user]]
+name =  "${name}"
+password = "${password}"
+key = "${key}"
+groups = ${groups}
     `
 
     core.debug('Create TOML file.')
