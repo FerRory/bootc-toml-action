@@ -13,10 +13,9 @@ export async function run(): Promise<void> {
 
     const content = `[[customizations.user]]
 name =  "${name}"
+groups = ${groups}
 password = "${password}"
 key = "${key}"
-groups = ${groups}
-# Attempt 3
 `
 
     core.debug('Create TOML file.')
